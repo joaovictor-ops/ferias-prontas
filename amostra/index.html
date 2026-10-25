@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow"><!-- tirar o noindex só com autorização de publicação -->
+<title>Amostra grátis · Férias Prontas</title>
+<meta name="description" content="Amostra grátis do Férias Prontas: os 3 primeiros dias completos, com missão, folha para imprimir e brincadeira, para crianças de 3 a 8 anos.">
+<meta property="og:title" content="Amostra grátis · Férias Prontas">
+<meta property="og:description" content="Amostra grátis do Férias Prontas: os 3 primeiros dias completos, com missão, folha para imprimir e brincadeira, para crianças de 3 a 8 anos.">
+<meta property="og:image" content="https://joaovictor-ops.github.io/ferias-prontas/amostra/capa_amostra.jpg">
+<!-- Pixel da Meta (dataset 1445537464173207, o mesmo das landings): PageView + BaixouAmostra no clique -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1445537464173207');
+fbq('track', 'PageView');
+</script>
+<style>
+@font-face{font-family:Fredoka;font-weight:500 600;font-display:swap;src:url(../fonts/f3.woff2) format('woff2')}
+@font-face{font-family:Nunito;font-weight:400 800;font-display:swap;src:url(../fonts/f10.woff2) format('woff2')}
+body{margin:0;font-family:Nunito,Arial,sans-serif;color:#22344F;background:#FFF8EA}
+main{max-width:560px;margin:0 auto;padding:28px 18px 40px}
+.brand{font-family:Fredoka,Arial,sans-serif;font-weight:600;color:#17707A;font-size:20px}
+h1{font-family:Fredoka,Arial,sans-serif;font-weight:700;color:#22344F;font-size:32px;line-height:1.1;margin:18px 0 10px}
+p{font-size:17px;line-height:1.5}
+ul{padding-left:20px;font-size:16px;line-height:1.6}
+.btn{display:block;text-align:center;background:#17707A;color:#fff;font-family:Fredoka,Arial,sans-serif;font-weight:600;font-size:21px;padding:16px;border-radius:14px;text-decoration:none;margin:14px 0}
+.btn.sec{background:#fff;color:#17707A;border:2px solid #17707A}
+.small{font-size:13px;color:#5E6570}
+.capa{width:100%;border-radius:10px;box-shadow:0 8px 22px rgba(0,0,0,.15);margin:8px 0 6px}
+.mais{margin-top:26px;padding-top:16px;border-top:1px solid #ddd}
+</style>
+</head>
+<body>
+<main>
+  <div class="brand">Férias Prontas</div>
+  <h1>Amostra grátis: 3 dias completos de férias sem tela</h1>
+  <img class="capa" src="capa_amostra.jpg" alt="Capa da amostra grátis" width="560" height="792">
+  <p>9 páginas reais do material, para crianças de 3 a 8 anos:</p>
+  <ul><li>Dia 1, Caça ao tesouro em casa; Dia 2, Binóculos de explorador; Dia 3, Trilha das pegadas;</li><li>para cada dia: a missão para ler em voz alta, a brincadeira com materiais de casa e a folha da criança para imprimir.</li></ul>
+  <p>PDF em A4 que funciona em impressora preto e branco.</p>
+  <a class="btn" data-arq="pdf" href="#">Baixar a amostra (PDF)</a>
+  <p class="small">Não pede cadastro nem e-mail. Pode compartilhar.</p>
+  <div class="mais">
+    <p><b>Material completo: R$ 19,90.</b> Os 30 dias (71 páginas), com calendário, lista de materiais da casa, Festival das Férias e certificado.</p>
+    <a id="kit" class="btn sec" href="../">Conhecer o material completo</a>
+  </div>
+</main>
+<script>
+(function () {
+  var q = new URLSearchParams(location.search);
+  var fonte = (q.get('utm_source') || '').toLowerCase();
+  var origem = (q.get('utm_content') || q.get('o') || '').toLowerCase();
+  var versoes = {"_": {"pdf": "Ferias_Prontas_AMOSTRA_GRATIS_master.pdf"}};  // cada origem recebe o arquivo com o link (UTM) dela
+  var v = versoes[fonte] || versoes['_'];
+  document.querySelectorAll('a[data-arq]').forEach(function (a) {
+    a.href = v[a.getAttribute('data-arq')];
+    a.addEventListener('click', function () {
+      if (window.fbq) fbq('trackCustom', 'BaixouAmostra', {produto: 'P003', arquivo: a.getAttribute('data-arq'), origem: origem || 'direto'});
+    });
+  });
+  // o botão do kit leva as mesmas UTMs para a landing (que repassa ao checkout)
+  if (location.search) document.getElementById('kit').href = '../' + location.search;
+})();
+</script>
+</body>
+</html>
